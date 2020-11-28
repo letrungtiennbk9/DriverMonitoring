@@ -1,10 +1,10 @@
 import React, { Suspense, useState } from 'react';
 import { renderRoutes } from 'react-router-config';
-import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/styles';
 import { LinearProgress } from '@material-ui/core';
 
-import { NavBar, TopBar, ChatBar } from './components';
+import { NavBar, TopBar } from './components';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -67,13 +67,9 @@ const Dashboard = (props) => {
           </Suspense>
         </main>
       </div>
-      <ChatBar />
+      
     </div>
   );
-};
-
-Dashboard.propTypes = {
-  route: PropTypes.object,
 };
 
 export default Dashboard;
