@@ -16,5 +16,5 @@ export default {
   indigo,
   green,
   orange,
-  red
+  red,
 };
