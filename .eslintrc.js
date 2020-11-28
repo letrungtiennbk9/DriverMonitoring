@@ -70,6 +70,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/self-closing-comp': 1,
     'react/sort-comp': 0,
+
     semi: 0,
   },
 };

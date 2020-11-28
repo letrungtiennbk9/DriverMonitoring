@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Typography, colors } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -17,15 +17,15 @@ const useStyles = makeStyles(theme => ({
     height: 20,
     minWidth: 20,
     whiteSpace: 'nowrap',
-    padding: theme.spacing(0.5, 1)
+    padding: theme.spacing(0.5, 1),
   },
   rounded: {
     borderRadius: 10,
-    padding: theme.spacing(0.5)
-  }
+    padding: theme.spacing(0.5),
+  },
 }));
 
-const Label = props => {
+const Label = (props) => {
   const { className, variant, color, shape, children, style, ...rest } = props;
 
   const classes = useStyles();
@@ -33,7 +33,7 @@ const Label = props => {
   const rootClassName = clsx(
     {
       [classes.root]: true,
-      [classes.rounded]: shape === 'rounded'
+      [classes.rounded]: shape === 'rounded',
     },
     className
   );
@@ -60,13 +60,11 @@ const Label = props => {
   );
 };
 
-
-
 Label.defaultProps = {
   style: {},
   color: colors.grey[600],
   variant: 'contained',
-  shape: 'square'
+  shape: 'square',
 };
 
 export default Label;

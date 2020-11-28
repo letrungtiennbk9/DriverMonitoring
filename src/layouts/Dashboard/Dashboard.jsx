@@ -67,7 +67,6 @@ const Dashboard = (props) => {
           </Suspense>
         </main>
       </div>
-      
     </div>
   );
 };

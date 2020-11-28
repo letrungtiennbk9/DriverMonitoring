@@ -20,7 +20,7 @@ import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
 import SettingsIcon from '@material-ui/icons/SettingsOutlined';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 
-import {Label} from 'components';
+import { Label } from 'components';
 
 export default [
   {
@@ -29,7 +29,7 @@ export default [
       {
         title: 'Overview',
         href: '/overview',
-        icon: HomeIcon
+        icon: HomeIcon,
       },
       {
         title: 'Dashboards',
@@ -38,13 +38,13 @@ export default [
         children: [
           {
             title: 'Default',
-            href: '/dashboards/default'
+            href: '/dashboards/default',
           },
           {
             title: 'Analytics',
-            href: '/dashboards/analytics'
-          }
-        ]
+            href: '/dashboards/analytics',
+          },
+        ],
       },
       {
         title: 'Management',
@@ -53,30 +53,30 @@ export default [
         children: [
           {
             title: 'Customers',
-            href: '/management/customers'
+            href: '/management/customers',
           },
           {
             title: 'Customer Details',
-            href: '/management/customers/1/summary'
+            href: '/management/customers/1/summary',
           },
           {
             title: 'Projects',
-            href: '/management/projects'
+            href: '/management/projects',
           },
           {
             title: 'Orders',
-            href: '/management/orders'
+            href: '/management/orders',
           },
           {
             title: 'Order Details',
-            href: '/management/orders/1'
-          }
-        ]
+            href: '/management/orders/1',
+          },
+        ],
       },
       {
         title: 'Social Feed',
         href: '/social-feed',
-        icon: PeopleIcon
+        icon: PeopleIcon,
       },
       {
         title: 'Profile',
@@ -85,21 +85,21 @@ export default [
         children: [
           {
             title: 'Timeline',
-            href: '/profile/1/timeline'
+            href: '/profile/1/timeline',
           },
           {
             title: 'Connections',
-            href: '/profile/1/connections'
+            href: '/profile/1/connections',
           },
           {
             title: 'Projects',
-            href: '/profile/1/projects'
+            href: '/profile/1/projects',
           },
           {
             title: 'Reviews',
-            href: '/profile/1/reviews'
-          }
-        ]
+            href: '/profile/1/reviews',
+          },
+        ],
       },
       {
         title: 'Project',
@@ -108,71 +108,65 @@ export default [
         children: [
           {
             title: 'Browse',
-            href: '/projects'
+            href: '/projects',
           },
           {
             title: 'Create',
-            href: '/projects/create'
+            href: '/projects/create',
           },
           {
             title: 'Overview',
-            href: '/projects/1/overview'
+            href: '/projects/1/overview',
           },
           {
             title: 'Files',
-            href: '/projects/1/files'
+            href: '/projects/1/files',
           },
           {
             title: 'Activity',
-            href: '/projects/1/activity'
+            href: '/projects/1/activity',
           },
           {
             title: 'Subscribers',
-            href: '/projects/1/subscribers'
-          }
-        ]
+            href: '/projects/1/subscribers',
+          },
+        ],
       },
       {
         title: 'Invoice',
         href: '/invoices/1',
-        icon: ReceiptIcon
+        icon: ReceiptIcon,
       },
       {
         title: 'Kanban Board',
         href: '/kanban-board',
-        icon: ListAltIcon
+        icon: ListAltIcon,
       },
       {
         title: 'Mail',
         href: '/mail',
         icon: MailIcon,
         label: () => (
-          <Label
-            color={colors.red[500]}
-            shape="rounded"
-          >
+          <Label color={colors.red[500]} shape="rounded">
             2
           </Label>
-        )
+        ),
       },
       {
         title: 'Chat',
         href: '/chat',
         icon: ChatIcon,
         label: () => (
-          <Label
-            color={colors.red[500]}
-            shape="rounded"
-          >
+          <Label color={colors.red[500]} shape="rounded">
             4
           </Label>
-        )
+        ),
       },
       {
         title: 'Calendar',
         href: '/calendar',
         icon: CalendarTodayIcon,
-        label: () => <Label color={colors.green[500]}>New</Label>
+        label: () => <Label color={colors.green[500]}>New</Label>,
       },
       {
         title: 'Settings',
@@ -181,21 +175,21 @@ export default [
         children: [
           {
             title: 'General',
-            href: '/settings/general'
+            href: '/settings/general',
           },
           {
             title: 'Subscription',
-            href: '/settings/subscription'
+            href: '/settings/subscription',
           },
           {
             title: 'Notifications',
-            href: '/settings/notifications'
+            href: '/settings/notifications',
           },
           {
             title: 'Security',
-            href: '/settings/security'
-          }
-        ]
+            href: '/settings/security',
+          },
+        ],
       },
       {
         title: 'Authentication',
@@ -204,13 +198,13 @@ export default [
         children: [
           {
             title: 'Login',
-            href: '/auth/login'
+            href: '/auth/login',
           },
           {
             title: 'Register',
-            href: '/auth/register'
-          }
-        ]
+            href: '/auth/register',
+          },
+        ],
       },
       {
         title: 'Errors',
@@ -219,19 +213,19 @@ export default [
         children: [
           {
             title: 'Error 401',
-            href: '/errors/error-401'
+            href: '/errors/error-401',
           },
           {
             title: 'Error 404',
-            href: '/errors/error-404'
+            href: '/errors/error-404',
           },
           {
             title: 'Error 500',
-            href: '/errors/error-500'
-          }
-        ]
-      }
-    ]
+            href: '/errors/error-500',
+          },
+        ],
+      },
+    ],
   },
   {
     title: 'Support',
@@ -239,19 +233,19 @@ export default [
       {
         title: 'Presentation',
         href: '/presentation',
-        icon: PresentToAllIcon
+        icon: PresentToAllIcon,
       },
       {
         title: 'Getting started',
         href: '/getting-started',
-        icon: CodeIcon
+        icon: CodeIcon,
       },
       {
         title: 'Changelog',
         href: '/changelog',
         icon: ViewModuleIcon,
-        label: () => <Label color={colors.blue['500']}>v1.2.0</Label>
-      }
-    ]
-  }
+        label: () => <Label color={colors.blue['500']}>v1.2.0</Label>,
+      },
+    ],
+  },
 ];

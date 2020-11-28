@@ -8,26 +8,26 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
 } from '@material-ui/core';
 import ContactSupportIcon from '@material-ui/icons/ContactSupportOutlined';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.white
+    backgroundColor: theme.palette.white,
   },
   inner: {
     padding: theme.spacing(6, 3),
     width: theme.breakpoints.values.lg,
     maxWidth: '100%',
-    margin: '0 auto'
+    margin: '0 auto',
   },
   content: {
-    marginTop: theme.spacing(6)
-  }
+    marginTop: theme.spacing(6),
+  },
 }));
 
-const FAQ = props => {
+const FAQ = (props) => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -36,36 +36,30 @@ const FAQ = props => {
     {
       title: 'What do we use for styling our components?',
       description:
-        'We use Material-ui\'s hooks api as we think it’s the best way of avoiding clutter.'
+        "We use Material-ui's hooks api as we think it’s the best way of avoiding clutter.",
     },
     {
       title:
         'Are the design files (sketch, figma) included in the Standard Package?',
       description:
-        'No, we offer the design source file only to Standard Plus Sketch & Figma and Extended Package.'
+        'No, we offer the design source file only to Standard Plus Sketch & Figma and Extended Package.',
     },
     {
       title: 'Are you providing support for setting up my project?',
       description:
-        'Yes, we offer email support for all our customers & even skype meetings for our extended license customers.'
-    }
+        'Yes, we offer email support for all our customers & even skype meetings for our extended license customers.',
+    },
   ];
 
   return (
-    <div
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
+    <div {...rest} className={clsx(classes.root, className)}>
       <div className={classes.inner}>
-        <Typography
-          align="center"
-          variant="h3"
-        >
+        <Typography align="center" variant="h3">
           FAQ
         </Typography>
         <div className={classes.content}>
           <List disablePadding>
-            {faqs.map(faq => (
+            {faqs.map((faq) => (
               <ListItem key={uuid()}>
                 <ListItemIcon>
                   <ContactSupportIcon />
@@ -86,7 +80,7 @@ const FAQ = props => {
 };
 
 FAQ.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default FAQ;

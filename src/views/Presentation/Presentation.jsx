@@ -7,21 +7,18 @@ import {
   FAQ,
   PluginsSupport,
   SourceFiles,
-  UserFlows
+  UserFlows,
 } from './components';
 
 const useStyles = makeStyles(() => ({
-  root: {}
+  root: {},
 }));
 
 const Presentation = () => {
   const classes = useStyles();
 
   return (
-    <Page
-      className={classes.root}
-      title="Presentation"
-    >
+    <Page className={classes.root} title="Presentation">
       <Header />
       <UserFlows />
       <PluginsSupport />

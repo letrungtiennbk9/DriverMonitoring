@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import  { matchPath } from 'react-router-dom';
+import { matchPath } from 'react-router-dom';
 import clsx from 'clsx';
 import useRouter from 'utils/useRouter';
 import { makeStyles } from '@material-ui/styles';

@@ -6,14 +6,12 @@ import theme from '../../theme';
 import routes from '../../routes';
 import { renderRoutes } from 'react-router-config';
 
-import 'assets/styles/index.scss'
+import 'assets/styles/index.scss';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-       <Router>
-      {renderRoutes(routes)}
-      </Router>
+      <Router>{renderRoutes(routes)}</Router>
     </ThemeProvider>
   );
 }

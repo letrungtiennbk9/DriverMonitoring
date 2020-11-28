@@ -9,24 +9,21 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 const CustomRouterLink = forwardRef((props, ref) => (
-  <div
-    ref={ref}
-    style={{ flexGrow: 1 }}
-  >
+  <div ref={ref} style={{ flexGrow: 1 }}>
     <RouterLink {...props} />
   </div>
 ));
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   item: {
     display: 'block',
     paddingTop: 0,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   itemLeaf: {
     display: 'flex',
     paddingTop: 0,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   button: {
     color: colors.blueGrey[800],
@@ -34,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-start',
     textTransform: 'none',
     letterSpacing: 0,
-    width: '100%'
+    width: '100%',
   },
   buttonLeaf: {
     color: colors.blueGrey[800],
@@ -45,35 +42,35 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     fontWeight: theme.typography.fontWeightRegular,
     '&.depth-0': {
-      fontWeight: theme.typography.fontWeightMedium
-    }
+      fontWeight: theme.typography.fontWeightMedium,
+    },
   },
   icon: {
     color: theme.palette.icon,
     display: 'flex',
     alignItems: 'center',
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   expandIcon: {
     marginLeft: 'auto',
     height: 16,
-    width: 16
+    width: 16,
   },
   label: {
     display: 'flex',
     alignItems: 'center',
-    marginLeft: 'auto'
+    marginLeft: 'auto',
   },
   active: {
     color: theme.palette.primary.main,
     fontWeight: theme.typography.fontWeightMedium,
     '& $icon': {
-      color: theme.palette.primary.main
-    }
-  }
+      color: theme.palette.primary.main,
+    },
+  },
 }));
 
-const NavigationListItem = props => {
+const NavigationListItem = (props) => {
   const {
     title,
     href,
@@ -90,7 +87,7 @@ const NavigationListItem = props => {
   const [open, setOpen] = useState(openProp);
 
   const handleToggle = () => {
-    setOpen(open => !open);
+    setOpen((open) => !open);
   };
 
   let paddingLeft = 8;
@@ -100,7 +97,7 @@ const NavigationListItem = props => {
   }
 
   const style = {
-    paddingLeft
+    paddingLeft,
   };
 
   if (children) {
@@ -110,54 +107,43 @@ const NavigationListItem = props => {
         className={clsx(classes.item, className)}
         disableGutters
       >
-        <Button
-          className={classes.button}
-          onClick={handleToggle}
-          style={style}
-        >
+        <Button className={classes.button} onClick={handleToggle} style={style}>
           {Icon && <Icon className={classes.icon} />}
           {title}
           {open ? (
-            <ExpandLessIcon
-              className={classes.expandIcon}
-              color="inherit"
-            />
+            <ExpandLessIcon className={classes.expandIcon} color="inherit" />
           ) : (
-            <ExpandMoreIcon
-              className={classes.expandIcon}
-              color="inherit"
-            />
+            <ExpandMoreIcon className={classes.expandIcon} color="inherit" />
           )}
         </Button>
         <Collapse in={open}>{children}</Collapse>
       </ListItem>
     );
-  } else {
-    return (
-      <ListItem
-        {...rest}
-        className={clsx(classes.itemLeaf, className)}
-        disableGutters
-      >
-        <Button
-          activeClassName={classes.active}
-          className={clsx(classes.buttonLeaf, `depth-${depth}`)}
-          component={CustomRouterLink}
-          exact
-          style={style}
-          to={href}
-        >
-          {Icon && <Icon className={classes.icon} />}
-          {title}
-          {Label && (
-            <span className={classes.label}>
-              <Label />
-            </span>
-          )}
-        </Button>
-      </ListItem>
-    );
   }
+  return (
+    <ListItem
+      {...rest}
+      className={clsx(classes.itemLeaf, className)}
+      disableGutters
+    >
+      <Button
+        activeClassName={classes.active}
+        className={clsx(classes.buttonLeaf, `depth-${depth}`)}
+        component={CustomRouterLink}
+        exact
+        style={style}
+        to={href}
+      >
+        {Icon && <Icon className={classes.icon} />}
+        {title}
+        {Label && (
+          <span className={classes.label}>
+            <Label />
+          </span>
+        )}
+      </Button>
+    </ListItem>
+  );
 };
 
 NavigationListItem.propTypes = {
@@ -168,12 +154,12 @@ NavigationListItem.propTypes = {
   icon: PropTypes.any,
   label: PropTypes.any,
   open: PropTypes.bool,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 NavigationListItem.defaultProps = {
   depth: 0,
-  open: false
+  open: false,
 };
 
 export default NavigationListItem;

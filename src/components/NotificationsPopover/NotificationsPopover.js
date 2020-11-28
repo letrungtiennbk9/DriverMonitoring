@@ -8,7 +8,7 @@ import {
   CardActions,
   Divider,
   Button,
-  colors
+  colors,
 } from '@material-ui/core';
 
 import { NotificationList, EmptyList } from './components';
@@ -16,15 +16,15 @@ import { NotificationList, EmptyList } from './components';
 const useStyles = makeStyles(() => ({
   root: {
     width: 350,
-    maxWidth: '100%'
+    maxWidth: '100%',
   },
   actions: {
     backgroundColor: colors.grey[50],
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 }));
 
-const NotificationsPopover = props => {
+const NotificationsPopover = (props) => {
   const { notifications, anchorEl, ...rest } = props;
 
   const classes = useStyles();
@@ -35,7 +35,7 @@ const NotificationsPopover = props => {
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'bottom',
-        horizontal: 'center'
+        horizontal: 'center',
       }}
     >
       <div className={classes.root}>
@@ -48,11 +48,7 @@ const NotificationsPopover = props => {
         )}
         <Divider />
         <CardActions className={classes.actions}>
-          <Button
-            component={RouterLink}
-            size="small"
-            to="#"
-          >
+          <Button component={RouterLink} size="small" to="#">
             See all
           </Button>
         </CardActions>
@@ -66,7 +62,7 @@ NotificationsPopover.propTypes = {
   className: PropTypes.string,
   notifications: PropTypes.array.isRequired,
   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
 };
 
 export default NotificationsPopover;

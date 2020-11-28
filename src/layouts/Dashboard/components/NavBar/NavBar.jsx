@@ -61,10 +61,7 @@ const NavBar = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.location.pathname]);
 
-
-  const session = {
-
-  }
+  const session = {};
 
   const navbarContent = (
     <div className={classes.content}>
