@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
-
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -97,7 +97,7 @@ const TopBar = (props) => {
   const classes = useStyles();
   const { history } = useRouter();
   const searchRef = useRef(null);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const notificationsRef = useRef(null);
   const [pricingModalOpen, setPricingModalOpen] = useState(false);
   const [openSearchPopover, setOpenSearchPopover] = useState(false);
@@ -250,7 +250,6 @@ const TopBar = (props) => {
           </IconButton>
         </Hidden>
       </Toolbar>
-
       <NotificationsPopover
         anchorEl={notificationsRef.current}
         notifications={notifications}

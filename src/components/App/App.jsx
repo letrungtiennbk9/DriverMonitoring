@@ -1,18 +1,34 @@
-import React from 'react';
-import { Typography } from '@material-ui/core';
+import React, { Suspense } from 'react';
+
+import { Provider as StoreProvider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
 import { BrowserRouter as Router } from 'react-router-dom';
-import theme from '../../theme';
-import routes from '../../routes';
 import { renderRoutes } from 'react-router-config';
 
 import 'assets/styles/index.scss';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
+import { LinearProgress } from '@material-ui/core';
+import routes from 'routes';
+import { configureStore } from '../../store';
+
+import theme from '../../theme';
+
+const store = configureStore();
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>{renderRoutes(routes)}</Router>
-    </ThemeProvider>
+    <StoreProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <Router>
+            <Suspense fallback={<LinearProgress />}>
+              {renderRoutes(routes)}
+            </Suspense>
+          </Router>
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
+    </StoreProvider>
   );
 }
 
