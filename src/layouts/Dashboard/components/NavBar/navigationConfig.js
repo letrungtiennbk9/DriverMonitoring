@@ -19,6 +19,7 @@ import PersonIcon from '@material-ui/icons/PersonOutlined';
 import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
 import SettingsIcon from '@material-ui/icons/SettingsOutlined';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import UserIcon from '@material-ui/icons/AccountCircleOutlined';
 
 import { Label } from 'components';
 
@@ -26,6 +27,11 @@ export default [
   {
     title: 'Pages',
     pages: [
+      {
+        title: 'User Management',
+        href: '/users',
+        icon: UserIcon
+      },
       {
         title: 'Overview',
         href: '/overview',

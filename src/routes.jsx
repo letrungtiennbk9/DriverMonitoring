@@ -32,9 +32,17 @@ const routes = [
     component: DashboardLayout,
     routes: [
       {
+        path: '/users',
+        exact: true,
+        component: lazy(() => import('views/UserManagement')),
+      },
+      {
         path: '/presentation',
         exact: true,
         component: PresentationView,
+      },
+      {
+        component: () => <Redirect to="/errors/error-404" />,
       },
     ],
   },
