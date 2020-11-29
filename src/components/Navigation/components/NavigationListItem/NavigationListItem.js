@@ -2,7 +2,7 @@
 import React, { useState, forwardRef } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/styles';
 import { ListItem, Button, Collapse, colors } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -71,17 +71,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavigationListItem = (props) => {
-  const {
-    title,
-    href,
-    depth,
-    children,
-    icon: Icon,
-    className,
-    open: openProp,
-    label: Label,
-    ...rest
-  } = props;
+  const { title, href, depth, children, icon: Icon, className, open: openProp, label: Label, ...rest } = props;
 
   const classes = useStyles();
   const [open, setOpen] = useState(openProp);
@@ -102,11 +92,7 @@ const NavigationListItem = (props) => {
 
   if (children) {
     return (
-      <ListItem
-        {...rest}
-        className={clsx(classes.item, className)}
-        disableGutters
-      >
+      <ListItem {...rest} className={clsx(classes.item, className)} disableGutters>
         <Button className={classes.button} onClick={handleToggle} style={style}>
           {Icon && <Icon className={classes.icon} />}
           {title}
@@ -121,11 +107,7 @@ const NavigationListItem = (props) => {
     );
   }
   return (
-    <ListItem
-      {...rest}
-      className={clsx(classes.itemLeaf, className)}
-      disableGutters
-    >
+    <ListItem {...rest} className={clsx(classes.itemLeaf, className)} disableGutters>
       <Button
         activeClassName={classes.active}
         className={clsx(classes.buttonLeaf, `depth-${depth}`)}
@@ -144,17 +126,6 @@ const NavigationListItem = (props) => {
       </Button>
     </ListItem>
   );
-};
-
-NavigationListItem.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  depth: PropTypes.number.isRequired,
-  href: PropTypes.string,
-  icon: PropTypes.any,
-  label: PropTypes.any,
-  open: PropTypes.bool,
-  title: PropTypes.string.isRequired,
 };
 
 NavigationListItem.defaultProps = {

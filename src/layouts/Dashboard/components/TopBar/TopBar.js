@@ -160,13 +160,7 @@ const TopBar = (props) => {
     setOpenSearchPopover(false);
   };
 
-  const popularSearches = [
-    'Devias React Dashboard',
-    'Devias',
-    'Admin Pannel',
-    'Project',
-    'Pages',
-  ];
+  const popularSearches = ['Devias React Dashboard', 'Devias', 'Admin Pannel', 'Project', 'Pages'];
 
   return (
     <AppBar {...rest} className={clsx(classes.root, className)} color="primary">
@@ -186,21 +180,12 @@ const TopBar = (props) => {
               value={searchValue}
             />
           </div>
-          <Popper
-            anchorEl={searchRef.current}
-            className={classes.searchPopper}
-            open={openSearchPopover}
-            transition
-          >
+          <Popper anchorEl={searchRef.current} className={classes.searchPopper} open={openSearchPopover} transition>
             <ClickAwayListener onClickAway={handleSearchPopverClose}>
               <Paper className={classes.searchPopperContent} elevation={3}>
                 <List>
                   {popularSearches.map((search) => (
-                    <ListItem
-                      key={search}
-                      button
-                      onClick={handleSearchPopverClose}
-                    >
+                    <ListItem key={search} button onClick={handleSearchPopverClose}>
                       <ListItemIcon>
                         <SearchIcon />
                       </ListItemIcon>
@@ -211,11 +196,7 @@ const TopBar = (props) => {
               </Paper>
             </ClickAwayListener>
           </Popper>
-          <Button
-            className={classes.trialButton}
-            onClick={handlePricingOpen}
-            variant="contained"
-          >
+          <Button className={classes.trialButton} onClick={handlePricingOpen} variant="contained">
             <LockIcon className={classes.trialIcon} />
             Trial expired
           </Button>
@@ -227,19 +208,11 @@ const TopBar = (props) => {
             color="inherit"
             onClick={handleNotificationsOpen}
           >
-            <Badge
-              badgeContent={notifications.length}
-              classes={{ badge: classes.notificationsBadge }}
-              variant="dot"
-            >
+            <Badge badgeContent={notifications.length} classes={{ badge: classes.notificationsBadge }} variant="dot">
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <Button
-            className={classes.logoutButton}
-            color="inherit"
-            onClick={handleLogout}
-          >
+          <Button className={classes.logoutButton} color="inherit" onClick={handleLogout}>
             <InputIcon className={classes.logoutIcon} />
             Sign out
           </Button>

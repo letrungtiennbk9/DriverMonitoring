@@ -51,20 +51,11 @@ const Dashboard = (props) => {
 
   return (
     <div className={classes.root}>
-      <TopBar
-        className={classes.topBar}
-        onOpenNavBarMobile={handleNavBarMobileOpen}
-      />
+      <TopBar className={classes.topBar} onOpenNavBarMobile={handleNavBarMobileOpen} />
       <div className={classes.container}>
-        <NavBar
-          className={classes.navBar}
-          onMobileClose={handleNavBarMobileClose}
-          openMobile={openNavBarMobile}
-        />
+        <NavBar className={classes.navBar} onMobileClose={handleNavBarMobileClose} openMobile={openNavBarMobile} />
         <main className={classes.content}>
-          <Suspense fallback={<LinearProgress />}>
-            {renderRoutes(route.routes)}
-          </Suspense>
+          <Suspense fallback={<LinearProgress />}>{renderRoutes(route.routes)}</Suspense>
         </main>
       </div>
     </div>

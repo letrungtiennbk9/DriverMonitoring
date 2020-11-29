@@ -32,11 +32,7 @@ const reduceChildRoutes = (props) => {
         open={Boolean(open)}
         title={page.title}
       >
-        <NavigationList
-          depth={depth + 1}
-          pages={page.children}
-          router={router}
-        />
+        <NavigationList depth={depth + 1} pages={page.children} router={router} />
       </NavigationListItem>
     );
   } else {
@@ -58,14 +54,7 @@ const reduceChildRoutes = (props) => {
 const NavigationList = (props) => {
   const { pages, ...rest } = props;
 
-  return (
-    <List>
-      {pages.reduce(
-        (items, page) => reduceChildRoutes({ items, page, ...rest }),
-        []
-      )}
-    </List>
-  );
+  return <List>{pages.reduce((items, page) => reduceChildRoutes({ items, page, ...rest }), [])}</List>;
 };
 
 const Navigation = (props) => {

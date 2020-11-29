@@ -9,9 +9,7 @@ import rootReducer from 'reducers';
 
 export default function configureStore(preloadedState = {}) {
   const middlewares = [thunkMiddleware]; // loggerMiddleware
-  const middlewareEnhancer = composeWithDevTools(
-    applyMiddleware(...middlewares)
-  );
+  const middlewareEnhancer = composeWithDevTools(applyMiddleware(...middlewares));
 
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = compose(...enhancers);

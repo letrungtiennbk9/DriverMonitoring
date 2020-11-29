@@ -2,13 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 
 import { Page } from 'components';
-import {
-  Header,
-  FAQ,
-  PluginsSupport,
-  SourceFiles,
-  UserFlows,
-} from './components';
+import { Header, FAQ, PluginsSupport, SourceFiles, UserFlows } from './components';
 
 const useStyles = makeStyles(() => ({
   root: {},
