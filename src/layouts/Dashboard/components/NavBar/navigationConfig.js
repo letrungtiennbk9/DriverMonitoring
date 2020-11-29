@@ -19,23 +19,17 @@ import PersonIcon from '@material-ui/icons/PersonOutlined';
 import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
 import SettingsIcon from '@material-ui/icons/SettingsOutlined';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import UserIcon from '@material-ui/icons/AccountCircleOutlined';
 
 import { Label } from 'components';
 
 export default [
   {
-    title: 'Pages',
+    title: 'Control Panel',
     pages: [
-      {
-        title: 'User Management',
-        href: '/users',
-        icon: UserIcon
-      },
       {
         title: 'Overview',
         href: '/overview',
-        icon: HomeIcon
+        icon: HomeIcon,
       },
       {
         title: 'Dashboards',
@@ -44,13 +38,13 @@ export default [
         children: [
           {
             title: 'Default',
-            href: '/dashboards/default'
+            href: '/dashboards/default',
           },
           {
             title: 'Analytics',
-            href: '/dashboards/analytics'
-          }
-        ]
+            href: '/dashboards/analytics',
+          },
+        ],
       },
       {
         title: 'Management',
@@ -58,128 +52,42 @@ export default [
         icon: BarChartIcon,
         children: [
           {
-            title: 'Customers',
-            href: '/management/customers'
+            title: 'Users',
+            href: '/management/users',
           },
           {
-            title: 'Customer Details',
-            href: '/management/customers/1/summary'
+            title: 'Drivers',
+            href: '/management/drivers',
           },
-          {
-            title: 'Projects',
-            href: '/management/projects'
-          },
+
           {
             title: 'Orders',
-            href: '/management/orders'
+            href: '/management/orders',
           },
           {
             title: 'Order Details',
-            href: '/management/orders/1'
-          }
-        ]
+            href: '/management/orders/1',
+          },
+        ],
       },
-      {
-        title: 'Social Feed',
-        href: '/social-feed',
-        icon: PeopleIcon
-      },
-      {
-        title: 'Profile',
-        href: '/profile',
-        icon: PersonIcon,
-        children: [
-          {
-            title: 'Timeline',
-            href: '/profile/1/timeline'
-          },
-          {
-            title: 'Connections',
-            href: '/profile/1/connections'
-          },
-          {
-            title: 'Projects',
-            href: '/profile/1/projects'
-          },
-          {
-            title: 'Reviews',
-            href: '/profile/1/reviews'
-          }
-        ]
-      },
-      {
-        title: 'Project',
-        href: '/projects',
-        icon: FolderIcon,
-        children: [
-          {
-            title: 'Browse',
-            href: '/projects'
-          },
-          {
-            title: 'Create',
-            href: '/projects/create'
-          },
-          {
-            title: 'Overview',
-            href: '/projects/1/overview'
-          },
-          {
-            title: 'Files',
-            href: '/projects/1/files'
-          },
-          {
-            title: 'Activity',
-            href: '/projects/1/activity'
-          },
-          {
-            title: 'Subscribers',
-            href: '/projects/1/subscribers'
-          }
-        ]
-      },
+
       {
         title: 'Invoice',
         href: '/invoices/1',
-        icon: ReceiptIcon
+        icon: ReceiptIcon,
       },
-      {
-        title: 'Kanban Board',
-        href: '/kanban-board',
-        icon: ListAltIcon
-      },
-      {
-        title: 'Mail',
-        href: '/mail',
-        icon: MailIcon,
-        label: () => (
-          <Label
-            color={colors.red[500]}
-            shape="rounded"
-          >
-            2
-          </Label>
-        )
-      },
+
       {
         title: 'Chat',
         href: '/chat',
         icon: ChatIcon,
         label: () => (
-          <Label
-            color={colors.red[500]}
-            shape="rounded"
-          >
+          <Label color={colors.red[500]} shape="rounded">
             4
           </Label>
-        )
+        ),
       },
-      {
-        title: 'Calendar',
-        href: '/calendar',
-        icon: CalendarTodayIcon,
-        label: () => <Label color={colors.green[500]}>New</Label>
-      },
+
       {
         title: 'Settings',
         href: '/settings',
@@ -187,21 +95,21 @@ export default [
         children: [
           {
             title: 'General',
-            href: '/settings/general'
+            href: '/settings/general',
           },
           {
             title: 'Subscription',
-            href: '/settings/subscription'
+            href: '/settings/subscription',
           },
           {
             title: 'Notifications',
-            href: '/settings/notifications'
+            href: '/settings/notifications',
           },
           {
             title: 'Security',
-            href: '/settings/security'
-          }
-        ]
+            href: '/settings/security',
+          },
+        ],
       },
       {
         title: 'Authentication',
@@ -210,13 +118,13 @@ export default [
         children: [
           {
             title: 'Login',
-            href: '/auth/login'
+            href: '/auth/login',
           },
           {
             title: 'Register',
-            href: '/auth/register'
-          }
-        ]
+            href: '/auth/register',
+          },
+        ],
       },
       {
         title: 'Errors',
@@ -225,39 +133,18 @@ export default [
         children: [
           {
             title: 'Error 401',
-            href: '/errors/error-401'
+            href: '/errors/error-401',
           },
           {
             title: 'Error 404',
-            href: '/errors/error-404'
+            href: '/errors/error-404',
           },
           {
             title: 'Error 500',
-            href: '/errors/error-500'
-          }
-        ]
-      }
-    ]
+            href: '/errors/error-500',
+          },
+        ],
+      },
+    ],
   },
-  {
-    title: 'Support',
-    pages: [
-      {
-        title: 'Presentation',
-        href: '/presentation',
-        icon: PresentToAllIcon
-      },
-      {
-        title: 'Getting started',
-        href: '/getting-started',
-        icon: CodeIcon
-      },
-      {
-        title: 'Changelog',
-        href: '/changelog',
-        icon: ViewModuleIcon,
-        label: () => <Label color={colors.blue['500']}>v1.2.0</Label>
-      }
-    ]
-  }
 ];

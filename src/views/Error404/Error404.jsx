@@ -8,7 +8,7 @@ import { Page } from 'components';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
-    paddingTop: '10vh',
+    paddingTop: '25vh',
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',
@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     maxWidth: '100%',
-    width: 560,
-    maxHeight: 300,
+    width: 320,
+    maxHeight: 170,
     height: 'auto',
   },
   buttonContainer: {

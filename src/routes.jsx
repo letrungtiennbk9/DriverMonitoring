@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: () => <Redirect to="/presentation" />,
+    component: () => <Redirect to="/overview" />,
   },
   {
     path: '/errors',
@@ -32,9 +32,19 @@ const routes = [
     component: DashboardLayout,
     routes: [
       {
-        path: '/users',
+        path: '/overview',
+        exact: true,
+        component: lazy(() => import('views/Overview')),
+      },
+      {
+        path: '/management/users',
         exact: true,
         component: lazy(() => import('views/UserManagement')),
+      },
+      {
+        path: '/management/drivers',
+        exact: true,
+        component: lazy(() => import('views/DriverManagement')),
       },
       {
         path: '/presentation',

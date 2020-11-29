@@ -5,14 +5,7 @@ import clsx from 'clsx';
 
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Drawer,
-  Divider,
-  Paper,
-  Avatar,
-  Typography,
-  Hidden,
-} from '@material-ui/core';
+import { Drawer, Divider, Paper, Avatar, Typography, Hidden } from '@material-ui/core';
 import useRouter from 'utils/useRouter';
 import { Navigation } from 'components';
 import navigationConfig from './navigationConfig';
@@ -55,10 +48,9 @@ const NavBar = (props) => {
 
   useEffect(() => {
     if (openMobile) {
+      // eslint-disable-next-line no-unused-expressions
       onMobileClose && onMobileClose();
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.location.pathname]);
 
   const session = {};
@@ -83,12 +75,7 @@ const NavBar = (props) => {
       <Divider className={classes.divider} />
       <nav className={classes.navigation}>
         {navigationConfig.map((list) => (
-          <Navigation
-            key={list.title}
-            component="div"
-            pages={list.pages}
-            title={list.title}
-          />
+          <Navigation key={list.title} component="div" pages={list.pages} title={list.title} />
         ))}
       </nav>
     </div>
@@ -97,24 +84,14 @@ const NavBar = (props) => {
   return (
     <>
       <Hidden lgUp>
-        <Drawer
-          anchor="left"
-          onClose={onMobileClose}
-          open={openMobile}
-          variant="temporary"
-        >
+        <Drawer anchor="left" onClose={onMobileClose} open={openMobile} variant="temporary">
           <div {...rest} className={clsx(classes.root, className)}>
             {navbarContent}
           </div>
         </Drawer>
       </Hidden>
       <Hidden mdDown>
-        <Paper
-          {...rest}
-          className={clsx(classes.root, className)}
-          elevation={1}
-          square
-        >
+        <Paper {...rest} className={clsx(classes.root, className)} elevation={1} square>
           {navbarContent}
         </Paper>
       </Hidden>

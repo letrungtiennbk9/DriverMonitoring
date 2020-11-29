@@ -2,14 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Popover,
-  CardHeader,
-  CardActions,
-  Divider,
-  Button,
-  colors,
-} from '@material-ui/core';
+import { Popover, CardHeader, CardActions, Divider, Button, colors } from '@material-ui/core';
 
 import { NotificationList, EmptyList } from './components';
 
@@ -41,11 +34,7 @@ const NotificationsPopover = (props) => {
       <div className={classes.root}>
         <CardHeader title="Notifications" />
         <Divider />
-        {notifications.length > 0 ? (
-          <NotificationList notifications={notifications} />
-        ) : (
-          <EmptyList />
-        )}
+        {notifications.length > 0 ? <NotificationList notifications={notifications} /> : <EmptyList />}
         <Divider />
         <CardActions className={classes.actions}>
           <Button component={RouterLink} size="small" to="#">
