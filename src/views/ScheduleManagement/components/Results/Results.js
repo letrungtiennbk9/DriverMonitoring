@@ -51,38 +51,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Results = (props) => {
-  const { className, drivers, ...rest } = props;
+  const { className, schedules, ...rest } = props;
 
   const classes = useStyles();
 
-  const [selectedDrivers, setSelectedDrivers] = useState([]);
+  const [selectedschedules, setSelectedschedules] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleSelectAll = (event) => {
-    const currentSelectedDrivers = event.target.checked ? drivers.map((driver) => driver.id) : [];
+    const currentSelectedschedules = event.target.checked ? schedules.map((schedule) => schedule.id) : [];
 
-    setSelectedDrivers(currentSelectedDrivers);
+    setSelectedschedules(currentSelectedschedules);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedDrivers.indexOf(id);
-    let newSelectedDrivers = [];
+    const selectedIndex = selectedschedules.indexOf(id);
+    let newSelectedschedules = [];
 
     if (selectedIndex === -1) {
-      newSelectedDrivers = newSelectedDrivers.concat(selectedDrivers, id);
+      newSelectedschedules = newSelectedschedules.concat(selectedschedules, id);
     } else if (selectedIndex === 0) {
-      newSelectedDrivers = newSelectedDrivers.concat(selectedDrivers.slice(1));
-    } else if (selectedIndex === selectedDrivers.length - 1) {
-      newSelectedDrivers = newSelectedDrivers.concat(selectedDrivers.slice(0, -1));
+      newSelectedschedules = newSelectedschedules.concat(selectedschedules.slice(1));
+    } else if (selectedIndex === selectedschedules.length - 1) {
+      newSelectedschedules = newSelectedschedules.concat(selectedschedules.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelectedDrivers = newSelectedDrivers.concat(
-        selectedDrivers.slice(0, selectedIndex),
-        selectedDrivers.slice(selectedIndex + 1)
+      newSelectedschedules = newSelectedschedules.concat(
+        selectedschedules.slice(0, selectedIndex),
+        selectedschedules.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedDrivers(newSelectedDrivers);
+    setSelectedschedules(newSelectedschedules);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -96,10 +96,10 @@ const Results = (props) => {
   return (
     <div {...rest} className={clsx(classes.root, className)}>
       <Typography color="textSecondary" gutterBottom variant="body2">
-        {`${drivers.length} Records found. Page ${page + 1} of ${Math.ceil(drivers.length / rowsPerPage)}`}
+        {`${schedules.length} Records found. Page ${page + 1} of ${Math.ceil(schedules.length / rowsPerPage)}`}
       </Typography>
       <Card>
-        <CardHeader action={<GenericMoreButton />} title="All drivers." />
+        <CardHeader action={<GenericMoreButton />} title="All schedules." />
         <Divider />
         <CardContent className={classes.content}>
           <PerfectScrollbar>
@@ -109,71 +109,43 @@ const Results = (props) => {
                   <TableRow>
                     <TableCell padding="checkbox">
                       <Checkbox
-                        checked={selectedDrivers.length === drivers.length}
+                        checked={selectedschedules.length === schedules.length}
                         color="primary"
-                        indeterminate={selectedDrivers.length > 0 && selectedDrivers.length < drivers.length}
+                        indeterminate={selectedschedules.length > 0 && selectedschedules.length < schedules.length}
                         onChange={handleSelectAll}
                       />
                     </TableCell>
-                    <TableCell>ID</TableCell>
                     <TableCell>Name</TableCell>
-                    <TableCell>Company</TableCell>
-
+                    <TableCell>Route</TableCell>
+                    <TableCell>Start Time</TableCell>
                     <TableCell>Status</TableCell>
-                    <TableCell>Phone</TableCell>
-                    <TableCell>Current Orders</TableCell>
+                    <TableCell>Issues</TableCell>
+
                     <TableCell align="right">Actions</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {drivers.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((driver) => (
-                    <TableRow key={driver.id} hover selected={selectedDrivers.indexOf(driver.id) !== -1}>
+                  {schedules.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((schedule) => (
+                    <TableRow key={schedule.id} hover selected={selectedschedules.indexOf(schedule.id) !== -1}>
                       <TableCell padding="checkbox">
                         <Checkbox
-                          checked={selectedDrivers.indexOf(driver.id) !== -1}
+                          checked={selectedschedules.indexOf(schedule.id) !== -1}
                           color="primary"
-                          onChange={(event) => handleSelectOne(event, driver.id)}
-                          value={selectedDrivers.indexOf(driver.id) !== -1}
+                          onChange={(event) => handleSelectOne(event, schedule.id)}
+                          value={selectedschedules.indexOf(schedule.id) !== -1}
                         />
                       </TableCell>
-                      <TableCell>{driver.id}</TableCell>
-                      <TableCell>
-                        <div className={classes.nameCell}>
-                          <Avatar className={classes.avatar} src={driver.avatar}>
-                            {getInitials(driver.name)}
-                          </Avatar>
-                          <div>
-                            <Link color="inherit" component={RouterLink} to="/management/drivers/1" variant="h6">
-                              {driver.name}
-                            </Link>
-                            <div>{driver.email}</div>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>{driver.company}</TableCell>
-
-                      <TableCell>
-                        <Label
-                          color={
-                            // eslint-disable-next-line no-nested-ternary
-                            driver.status === 'On Drive'
-                              ? colors.green[600]
-                              : driver.status === 'Idle'
-                              ? colors.grey[600]
-                              : colors.orange[600]
-                          }
-                        >
-                          {driver.status}
-                        </Label>
-                      </TableCell>
-                      <TableCell>{driver.phone}</TableCell>
-                      <TableCell>{driver.orders}</TableCell>
+                      <TableCell>{schedule.name}</TableCell>
+                      <TableCell>{schedule.route}</TableCell>
+                      <TableCell>{schedule.startTime}</TableCell>
+                      <TableCell>{schedule.status}</TableCell>
+                      <TableCell>{schedule.issues}</TableCell>
                       <TableCell align="right">
                         <Button
                           color="primary"
                           component={RouterLink}
                           size="small"
-                          to="/management/drivers/1"
+                          to="/management/schedules/1"
                           variant="outlined"
                         >
                           View
@@ -189,7 +161,7 @@ const Results = (props) => {
         <CardActions className={classes.actions}>
           <TablePagination
             component="div"
-            count={drivers.length}
+            count={schedules.length}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
             page={page}
@@ -198,13 +170,13 @@ const Results = (props) => {
           />
         </CardActions>
       </Card>
-      <TableEditBar selected={selectedDrivers} />
+      <TableEditBar selected={selectedschedules} />
     </div>
   );
 };
 
 Results.defaultProps = {
-  drivers: [],
+  schedules: [],
 };
 
 export default Results;

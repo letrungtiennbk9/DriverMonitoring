@@ -1201,6 +1201,13 @@
   resolved "https://registry.yarnpkg.com/@date-io/core/-/core-1.3.13.tgz#90c71da493f20204b7a972929cc5c482d078b3fa"
   integrity sha512-AlEKV7TxjeK+jxWVKcCFrfYAk8spX9aCyiToFIiLPtfQbsjmRGLIhb5VZgptQcJdHtLXo7+m0DuurwFgUToQuA==
 
+"@date-io/date-fns@1.x":
+  version "1.3.13"
+  resolved "https://registry.yarnpkg.com/@date-io/date-fns/-/date-fns-1.3.13.tgz#7798844041640ab393f7e21a7769a65d672f4735"
+  integrity sha512-yXxGzcRUPcogiMj58wVgFjc9qUYrCnnU9eLcyNbsQCmae4jPuZCDoIBR21j8ZURsM7GRtU62VOw5yNd4dDHunA==
+  dependencies:
+    "@date-io/core" "^1.3.13"
+
 "@date-io/moment@^1.3.6":
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/@date-io/moment/-/moment-1.3.13.tgz#56c2772bc4f6675fc6970257e6033e7a7c2960f0"
@@ -1252,6 +1259,13 @@
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/@fullcalendar/timeline/-/timeline-4.4.2.tgz#52e622619787b8a632983e68199803a1473d7d12"
   integrity sha512-9lmFKZNtjHLlbZgOBUqjrKkyvuH3gksD13rRE9LC+TBB2EiUypks99A1Cqa1WhScVi2T6j1HZn3TpV6HFM6MBg==
+
+"@googlemaps/js-api-loader@^1.7.0":
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.11.1.tgz#b7f02c04d8d8602fb4bd873b03685fccefce1c6f"
+  integrity sha512-2ug4uBu0onRXTAo7Yxkay5N7pdNIz3XpTElMTLdCtEfQDxikbjeR6GS8atVhblX+ubFBNlXvDzz7VtuXv0vMRQ==
+  dependencies:
+    fast-deep-equal "^3.1.3"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -1443,6 +1457,11 @@
     "@types/node" "*"
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
+
+"@mapbox/point-geometry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
+  integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
 "@material-ui/core@^4.2.0":
   version "4.11.1"
@@ -4030,6 +4049,11 @@ date-arithmetic@^4.0.1:
   resolved "https://registry.yarnpkg.com/date-arithmetic/-/date-arithmetic-4.1.0.tgz#e5d6434e9deb71f79760a37b729e4a515e730ddf"
   integrity sha512-QWxYLR5P/6GStZcdem+V1xoto6DMadYWpMXU82ES3/RfR3Wdwr3D0+be7mgOJ+Ov0G9D5Dmb9T17sNLQYj9XOg==
 
+date-fns@^2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -4923,7 +4947,7 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eventemitter3@^4.0.0:
+eventemitter3@^4.0.0, eventemitter3@^4.0.4:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
@@ -5669,6 +5693,16 @@ good-listener@^1.2.2:
   integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
   dependencies:
     delegate "^3.1.2"
+
+google-map-react@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.1.9.tgz#6e539ce8bf28e7b8cda6058402e7581d1d1cec3d"
+  integrity sha512-//Pa0o6sdspU2H0ehVztSDQSnYYeV6TY4Z6ftty34yiCJYLliOzeq17dA9uFkyUFdL+XwbTU6e9mfs+bjBMIzw==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.7.0"
+    "@mapbox/point-geometry" "^0.1.0"
+    eventemitter3 "^4.0.4"
+    prop-types "^15.7.2"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2:
   version "4.2.4"

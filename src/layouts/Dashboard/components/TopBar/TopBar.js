@@ -165,9 +165,7 @@ const TopBar = (props) => {
   return (
     <AppBar {...rest} className={clsx(classes.root, className)} color="primary">
       <Toolbar>
-        <RouterLink to="/">
-          <img alt="Logo" src="/images/logos/logo--white.svg" />
-        </RouterLink>
+        <RouterLink to="/">Driver Monitoring</RouterLink>
         <div className={classes.flexGrow} />
         <Hidden smDown>
           <div ref={searchRef} className={classes.search}>

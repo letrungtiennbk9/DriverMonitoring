@@ -47,6 +47,16 @@ const routes = [
         component: lazy(() => import('views/DriverManagement')),
       },
       {
+        path: '/management/routes',
+        exact: true,
+        component: lazy(() => import('views/RouteManagement')),
+      },
+      {
+        path: '/management/schedules',
+        exact: true,
+        component: lazy(() => import('views/ScheduleManagement')),
+      },
+      {
         path: '/presentation',
         exact: true,
         component: PresentationView,

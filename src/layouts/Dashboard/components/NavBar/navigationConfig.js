@@ -52,7 +52,7 @@ export default [
         icon: BarChartIcon,
         children: [
           {
-            title: 'Users',
+            title: 'Managers',
             href: '/management/users',
           },
           {
@@ -61,8 +61,12 @@ export default [
           },
 
           {
-            title: 'Orders',
-            href: '/management/orders',
+            title: 'Routes',
+            href: '/management/routes',
+          },
+          {
+            title: 'Schedules',
+            href: '/management/schedules',
           },
           {
             title: 'Order Details',

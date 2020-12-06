@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
+    position: 'relative',
   },
   topBar: {
     zIndex: 2,
