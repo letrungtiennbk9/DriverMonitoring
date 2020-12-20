@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddEditSchedule = forwardRef((props, ref) => {
+const AddEditRoute = forwardRef((props, ref) => {
   const { user, onDelete, onCancel, onAdd, onEdit, className, ...rest } = props;
 
   const classes = useStyles();
@@ -81,7 +81,7 @@ const AddEditSchedule = forwardRef((props, ref) => {
         <Button type="button">
           <ArrowBackIcon />
         </Button>
-        <Typography variant="h5">Schedule Infomation</Typography>
+        <Typography variant="h5">Route Infomation</Typography>
         <Button type="button" onClick={onCancel}>
           <CloseIcon />
         </Button>
@@ -120,7 +120,7 @@ const AddEditSchedule = forwardRef((props, ref) => {
   );
 });
 
-AddEditSchedule.propTypes = {
+AddEditRoute.propTypes = {
   className: PropTypes.string,
   user: PropTypes.object,
   onAdd: PropTypes.func,
@@ -129,4 +129,4 @@ AddEditSchedule.propTypes = {
   onEdit: PropTypes.func,
 };
 
-export default AddEditSchedule;
+export default AddEditRoute;
