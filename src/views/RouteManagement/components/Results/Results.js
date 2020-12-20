@@ -51,38 +51,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Results = (props) => {
-  const { className, users, ...rest } = props;
+  const { className, routes, ...rest } = props;
 
   const classes = useStyles();
 
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedroutes, setSelectedroutes] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleSelectAll = (event) => {
-    const currentSelectedUsers = event.target.checked ? users.map((user) => user.id) : [];
+    const currentSelectedroutes = event.target.checked ? routes.map((route) => route.id) : [];
 
-    setSelectedUsers(currentSelectedUsers);
+    setSelectedroutes(currentSelectedroutes);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedUsers.indexOf(id);
-    let newSelectedUsers = [];
+    const selectedIndex = selectedroutes.indexOf(id);
+    let newSelectedroutes = [];
 
     if (selectedIndex === -1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers, id);
+      newSelectedroutes = newSelectedroutes.concat(selectedroutes, id);
     } else if (selectedIndex === 0) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(1));
-    } else if (selectedIndex === selectedUsers.length - 1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(0, -1));
+      newSelectedroutes = newSelectedroutes.concat(selectedroutes.slice(1));
+    } else if (selectedIndex === selectedroutes.length - 1) {
+      newSelectedroutes = newSelectedroutes.concat(selectedroutes.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelectedUsers = newSelectedUsers.concat(
-        selectedUsers.slice(0, selectedIndex),
-        selectedUsers.slice(selectedIndex + 1)
+      newSelectedroutes = newSelectedroutes.concat(
+        selectedroutes.slice(0, selectedIndex),
+        selectedroutes.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedUsers(newSelectedUsers);
+    setSelectedroutes(newSelectedroutes);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -96,10 +96,10 @@ const Results = (props) => {
   return (
     <div {...rest} className={clsx(classes.root, className)}>
       <Typography color="textSecondary" gutterBottom variant="body2">
-        {`${users.length} Records found. Page ${page + 1} of ${Math.ceil(users.length / rowsPerPage)}`}
+        {`${routes.length} Records found. Page ${page + 1} of ${Math.ceil(routes.length / rowsPerPage)}`}
       </Typography>
       <Card>
-        <CardHeader action={<GenericMoreButton />} title="All users." />
+        <CardHeader action={<GenericMoreButton />} title="All routes." />
         <Divider />
         <CardContent className={classes.content}>
           <PerfectScrollbar>
@@ -109,62 +109,43 @@ const Results = (props) => {
                   <TableRow>
                     <TableCell padding="checkbox">
                       <Checkbox
-                        checked={selectedUsers.length === users.length}
+                        checked={selectedroutes.length === routes.length}
                         color="primary"
-                        indeterminate={selectedUsers.length > 0 && selectedUsers.length < users.length}
+                        indeterminate={selectedroutes.length > 0 && selectedroutes.length < routes.length}
                         onChange={handleSelectAll}
                       />
                     </TableCell>
                     <TableCell>Name</TableCell>
-                    <TableCell>Company</TableCell>
-                    <TableCell>ID</TableCell>
-                    <TableCell>Type</TableCell>
-                    <TableCell>Status</TableCell>
-                    <TableCell>Phone</TableCell>
-                    <TableCell>Current Drivers</TableCell>
+                    <TableCell>Start Location</TableCell>
+                    <TableCell>End Location</TableCell>
+                    <TableCell>Stop Points</TableCell>
+                    <TableCell>Created At</TableCell>
+
                     <TableCell align="right">Actions</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {users.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((user) => (
-                    <TableRow key={user.id} hover selected={selectedUsers.indexOf(user.id) !== -1}>
+                  {routes.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((route) => (
+                    <TableRow key={route.id} hover selected={selectedroutes.indexOf(route.id) !== -1}>
                       <TableCell padding="checkbox">
                         <Checkbox
-                          checked={selectedUsers.indexOf(user.id) !== -1}
+                          checked={selectedroutes.indexOf(route.id) !== -1}
                           color="primary"
-                          onChange={(event) => handleSelectOne(event, user.id)}
-                          value={selectedUsers.indexOf(user.id) !== -1}
+                          onChange={(event) => handleSelectOne(event, route.id)}
+                          value={selectedroutes.indexOf(route.id) !== -1}
                         />
                       </TableCell>
-                      <TableCell>
-                        <div className={classes.nameCell}>
-                          <Avatar className={classes.avatar} src={user.avatar}>
-                            {getInitials(user.name)}
-                          </Avatar>
-                          <div>
-                            <Link color="inherit" component={RouterLink} to="/management/users/1" variant="h6">
-                              {user.name}
-                            </Link>
-                            <div>{user.email}</div>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>{user.company}</TableCell>
-                      <TableCell>{user.id}</TableCell>
-                      <TableCell>{user.type}</TableCell>
-                      <TableCell>
-                        <Label color={user.status === 'Normal' ? colors.green[600] : colors.orange[600]}>
-                          {user.status}
-                        </Label>
-                      </TableCell>
-                      <TableCell>{user.phone}</TableCell>
-                      <TableCell>{user.orders}</TableCell>
+                      <TableCell>{route.name}</TableCell>
+                      <TableCell>{route.startpoint}</TableCell>
+                      <TableCell>{route.endpoint}</TableCell>
+                      <TableCell>{route.stoppoints}</TableCell>
+                      <TableCell>{route.createdAt}</TableCell>
                       <TableCell align="right">
                         <Button
                           color="primary"
                           component={RouterLink}
                           size="small"
-                          to="/management/users/1"
+                          to="/management/routes/1"
                           variant="outlined"
                         >
                           View
@@ -180,7 +161,7 @@ const Results = (props) => {
         <CardActions className={classes.actions}>
           <TablePagination
             component="div"
-            count={users.length}
+            count={routes.length}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
             page={page}
@@ -189,13 +170,13 @@ const Results = (props) => {
           />
         </CardActions>
       </Card>
-      <TableEditBar selected={selectedUsers} />
+      <TableEditBar selected={selectedroutes} />
     </div>
   );
 };
 
 Results.defaultProps = {
-  users: [],
+  routes: [],
 };
 
 export default Results;

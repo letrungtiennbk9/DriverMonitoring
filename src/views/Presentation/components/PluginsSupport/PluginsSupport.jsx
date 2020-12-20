@@ -36,16 +36,12 @@ const PluginsSupport = (props) => {
               Support for Plugins
             </Typography>
             <Typography variant="subtitle2">
-              The kit provides support for multiple third-party plugins right
-              out of the box like Chart.js, Dropzone.js, Kanban Plugin and many
-              more.
+              The kit provides support for multiple third-party plugins right out of the box like Chart.js, Dropzone.js,
+              Kanban Plugin and many more.
             </Typography>
           </Grid>
           <Grid className={classes.media} item lg={4} md={6} xs={12}>
-            <img
-              alt="User flows"
-              src="/images/presentation/plugins_support.png"
-            />
+            <img alt="User flows" src="/images/presentation/plugins_support.png" />
           </Grid>
         </Grid>
       </div>
